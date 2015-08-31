@@ -1,0 +1,38 @@
+div {
+  width: 140px;
+  height: 200px;
+  display: inline-block;
+  border-color: g;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+  color: black;
+  margin: auto;
+}
+
+#card {
+   box-shadow: 10px 10px 5px #888888;
+}
+#box {
+  width: 430px;
+  border-style: none;
+
+}
+#two {
+  background-color: whitesmoke;
+
+}
+
+#four {
+  background-color: whitesmoke;
+}
+#five {
+  background-color: whitesmoke;
+}
+#six {
+  background-color: whitesmoke;
+}
+
+#eight  {
+  background-color: whitesmoke;
+}

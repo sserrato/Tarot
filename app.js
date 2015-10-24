@@ -1,98 +1,28 @@
 var deck =
-[["tarot zero"], [" The Dreamer",""],
-[" The hacker ","I"],
-[" The burnt witch","III"],
-[" The despina ","III"],
-[" The patrician ","IV"],
-[" The mason","V"],
-[" The prophet","VI"],
-[" The bicycle ","VII"],
-[" The antifragile ","VIII"],
-[" The voice ","IX"],
-[" The immigrant","X"],
-[" The anarcho-capitalist ","XI"],
-[" The palisades ","XI"],
-[" The asteroid ","XII"],
-[" The black swan","XIV"],
-[" Bret Easton Ellis","XV"],
-[" The Tower","XVI"],
-[" The Whistleblower","XVII"],
-[" The shaman ","XVIII"],
-[" The anarcho-capitalist ","XIX"],
-[" The year zero","X"],
-[" The multiverse","XI"]]
-// ["The tarot zero position",
-//   "The snake",
-// "The walled city",
-// "The Beast",
-// "The Tower",
-// "Walt Disney",
-// "The Dreamer ",
-// "The burnt witch",
-// "The sea",
-// "The Pumpkin Spice",
-// "The early departed",
-// "The bicycle ",
-// "The year zero",
-// "The despina ",
-// "The man in full ",
-// "The voice ",
-// "The hacker ",
-// "Bret Easton Ellis",
-// "the House of the Rising Sun",
-// "The operator",
-// "The black swan",
-// "The antifragile ",
-// "The immigrant",
-// "The killer cop",
-// "The Whistleblower",
-// "The patrician ",
-// "The Matriarch ",
-// "The Hagia Sophia ",
-// "The mason",
-// "The anarcho-capitalist ",
-// "The podcaster",
-// "The social justice warrior ",
-// "The internet commenter ",
-// "The photographer",
-// "The advocate of liberty",
-// "The neckbeard",
-// "The renegade",
-// "The tactical genius",
-// "The strategist with skin in the game",
-// "The fish ",
-// "The caveman ",
-// "The transformer",
-// "The data master",
-// "The asteroid ",
-// "The pilot",
-// "The shaman ",
-// "The prophet",
-// "The CEO ",
-// "The bad customer",
-// "The descendent",
-// "The ancestor",
-// "The thirsty ",
-// "The sociopath",
-// "The market square",
-// "The domecile ",
-// "The hate bakery ",
-// "The coffee house",
-// "The kiss",
-// "The imperial capital",
-// "The dome ",
-// "The front door",
-// "The joys of the underground",
-// "The new emperors",
-// "The Orange County School of Social Thought ",
-// "The duchy of Brea ",
-// "The palisades ",
-// "The boat",
-// "The Hayes Valley",
-// "The train station",
-// "The mage"
-// ]
-//
+[["tarot zero"],
+["The Dreamer ","The Fool","0"],
+["The hacker ","The Magician","I"],
+["The burnt witch","The High Priestess","III"],
+["The despina ","The Empress","III"],
+["The patrician ","The Emperor","IV"],
+["The mason","The Hierophant","V"],
+["The prophet","The Lovers","VI"],
+["The bicycle ","The Chariot","VII"],
+["The antifragile ","Justice","VIII"],
+["The voice ","The Hermit","IX"],
+["The immigrant","Wheel of Fortune","X"],
+["The anarcho-capitalist ","Strength","XI"],
+["The palisades ","The Hanged Man","XI"],
+["The asteroid ","Death","XII"],
+["The black swan","Temperance","XIV"],
+["Bret Easton Ellis","The Devil","XV"],
+["The Tower","The Tower","XVI"],
+["The Whistleblower","The Star","XVII"],
+["The shaman ","The Moon","XVIII"],
+["the House of the Rising Sun","The Sun","XIX"],
+["The year zero","Judgment","X"],
+["The multiverse","The World","XI"]]
+
 
 
 
@@ -179,23 +109,23 @@ var clickCounter = 0;
 // 56 minor arana, 4 suits
 function  showCard(){
   if (clickCounter == 0) {
-    $("#five").append('<div id="card"> The present:<br> ' + deck[card1][0] + '</div');
+    $("#five").append('<div id="card"> The present:<br> ' + deck[card1][1] + '</div');
     clickCounter= clickCounter +1;
   }
   else if (clickCounter == 2) {
-    $('#four').append('<div id="card">The past:<br> ' + deck[card2][0] +'</div');
+    $('#four').append('<div id="card">The past:<br> ' + deck[card2][1] +'</div');
     clickCounter= clickCounter +1;
   }
   else if (clickCounter == 4) {
-    $('#six').append('<div id="card">The future:<br> ' + deck[card3][0] + '</div>');
+    $('#six').append('<div id="card">The future:<br> ' + deck[card3][1] + '</div>');
     clickCounter= clickCounter +1;
   }
   else if (clickCounter == 6){
-    $('#two').append('<div id="card">That which is hidden:<br> ' +deck[card4][0] + '</div>');
+    $('#two').append('<div id="card">That which is hidden:<br> ' +deck[card4][1] + '</div>');
     clickCounter= clickCounter +1;
   }
   else
-    $("#eight").append('<div id="card">Outward influences:<br> ' + deck[card5][0] + '</div>');
+    $("#eight").append('<div id="card">Outward influences:<br> ' + deck[card5][1] + '</div>');
     clickCounter= clickCounter +1;
 
 }

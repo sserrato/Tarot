@@ -1,17 +1,26 @@
+body {
+    background-image: url("images/amazing.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
 div {
   width: 140px;
   height: 200px;
   display: inline-block;
-  border-color: g;
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
   color: black;
   margin: auto;
+
 }
 
 #card {
-   box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px #888888;
+  opacity: 0.5;
 }
 #box {
   width: 430px;
@@ -20,19 +29,23 @@ div {
 }
 #two {
   background-color: whitesmoke;
-
+   opacity: 0.5;
 }
 
 #four {
   background-color: whitesmoke;
+    opacity: 0.5;
 }
 #five {
   background-color: whitesmoke;
+    opacity: 0.5;
 }
 #six {
   background-color: whitesmoke;
+    opacity: 0.5;
 }
 
 #eight  {
   background-color: whitesmoke;
+    opacity: 0.5;
 }

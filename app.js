@@ -28,7 +28,7 @@ var deck =
 // Card 2:   The immediate challenge facing the querent. You will often pull a difficult card here, which will indicate an obstacle that must be overcome. When you pull a "good" card here, examine it carefully because it will still represent a challenge.
 // Card 3:   Distant past, foundation. This card should indicate the root of the subject matter of the question
 // Card 4:   More recent past, including events. This will indicate events taking place, not necessarily directly connected to the question. For example, if a love affair going wrong Card 3 would show the root of why it is going wrong, whereas Card 4 will show something that recently happened to reflect this. You could see this as a "check comment" card - a way of seeing that the reading is sound.
-// Card 5:   The best that can be achieved. This is directly related to the question. Note that this may not necessarily gel against Card 10 - it depends whether you are able to get the best. However, a negative card here probably means that it is worth cutting your losses rather than putting any more effort into the situation.
+  // Card 5:   The best that can be achieved. This is directly related to the question. Note that this may not necessarily gel against Card 10 - it depends whether you are able to get the best. However, a negative card here probably means that it is worth cutting your losses rather than putting any more effort into the situation.
 // Card 6: Immediate Future. This indicates events in the next few days or week(s). This reading does not cover months.
 // Card 7: Factors or inner feelings affecting the situation. Compare this against Card 1 in order to understand underlying forces/trends. If there is conflict between them this tends to indicate that the querent is going in the wrong direction.
 // Card 8: External influences. People, energies or events which will affect the outcome of the question and are beyond the querent's control.
@@ -51,6 +51,8 @@ function dealCards(){
   card1 = (Math.floor((Math.random() * 22) + 1));
   //  $("#five").append('<div> The present:<br> ' + deck[card1] + '</div');
     pushDealtDeck(deck[card1], card1);
+    deck.splice(card1, 1);
+    console.log(deck.length);
     console.log("The present:<br> " +deck[card1] + card1);
 
   card2 = (Math.floor((Math.random() * 22) + 1));
@@ -58,12 +60,16 @@ function dealCards(){
       card2 = (Math.floor((Math.random() * 22) + 1));
   //    $('#four').append('<div>The past:<br> ' + deck[card2] +'</div');
       pushDealtDeck(deck[card2], card2);
+      deck.splice(card2, 1);
+      console.log(deck.length + "card2 removed");
       console.log("The past: " +  deck[card2] + card2);
     }
     else {
     //  $('#four').append('<div>The past:<br> ' + deck[card2] +'</div');
       console.log("The past: "+  deck[card2] + card2);
       dealtDeck.push([deck[card2], card2]);
+      deck.splice(card2, 1);
+      console.log(deck.length + "card2 removed");
     }
 
   card3 = (Math.floor((Math.random() * 22) + 1));
@@ -72,12 +78,16 @@ function dealCards(){
       console.log("The future: " + deck[card3] + card3);
       //$('#six').append('<div>The future: ' + deck[card3] + '</div>')
       pushDealtDeck(deck[card3], card3);
+      deck.splice(card3, 1);
+      console.log(deck.length + "card3 removed");
     }
     else {
 
       console.log("The future: " + deck[card3] + card3);
       //$('#six').append('<div>The future: ' + deck[card3] + '</div>');
       pushDealtDeck(deck[card3], card3);
+      deck.splice(card3, 1);
+      console.log(deck.length + "card3 removed");
     }
 
 
@@ -85,22 +95,31 @@ function dealCards(){
     if (card4 == card1 || card4 == card2 || card4 == card3) {
       card4 = (Math.floor((Math.random() * 22) + 1));
       pushDealtDeck(deck[card4], card4);
+      deck.splice(card4, 1);
+      console.log(deck.length + "card4 removed");
+
     }
     else {
         console.log("That which is hidden: "+ deck[card4] +card4);
         //$('#two').append('<div>That which is hidden:<br> ' +deck[card4] + '</div>');
         pushDealtDeck(deck[card4], card4);
+        deck.splice(card4, 1);
+        console.log(deck.length + "card4 removed");;
     }
 
   card5 = (Math.floor((Math.random() * 22) + 1));
     if (card5 == card1 || card5 ==  card2 || card5 ==  card3 || card5 == card4) {
       card5 = (Math.floor((Math.random() * 22) + 1));
       pushDealtDeck(deck[card5], card5);
+      deck.splice(card5, 1);
+      console.log(deck.length + "card5 removed");
     }
     else {
         console.log( "Outward influences: " +deck[card5] +card5);
         //$("#eight").append('<div>Outward influences:<br> ' + deck[card5] + '</div>');
         pushDealtDeck(deck[card5], card5);
+        deck.splice(card5, 1);
+        console.log(deck.length + "card5 removed");
     }
 }
 

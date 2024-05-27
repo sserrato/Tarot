@@ -1,10 +1,8 @@
 body {
-    background-image: url("images/amazing.gif");
-    background-size: cover;
-    background-repeat: no-repeat;
-
+  background-image: url("images/amazing.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
 
 div {
   width: 140px;
@@ -15,37 +13,29 @@ div {
   font-size: 20px;
   color: black;
   margin: auto;
-
+  border-radius: 10px; /* Rounded corners for card-like appearance */
 }
 
 #card {
-  box-shadow: 10px 10px 5px #888888;
-  opacity: 0.5;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Softer shadow for 3D effect */
+  opacity: 0.9; /* Less transparency for better readability */
 }
+
 #box {
   width: 430px;
   border-style: none;
-
-}
-#two {
-  background-color: whitesmoke;
-   opacity: 0.5;
 }
 
-#four {
+#two, #four, #five, #six, #eight {
   background-color: whitesmoke;
-    opacity: 0.5;
-}
-#five {
-  background-color: whitesmoke;
-    opacity: 0.5;
-}
-#six {
-  background-color: whitesmoke;
-    opacity: 0.5;
+  opacity: 0.9; /* Increased opacity for better text visibility */
 }
 
-#eight  {
-  background-color: whitesmoke;
-    opacity: 0.5;
+/* Additional styling for responsiveness and aesthetics */
+@media (max-width: 768px) {
+  div {
+      width: 100px; /* Smaller size for smaller screens */
+      height: 150px;
+      font-size: 16px; /* Smaller font size for smaller screens */
+  }
 }

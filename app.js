@@ -71,5 +71,8 @@ function displayCards() {
   });
 }
 
-dealCards();
-displayCards();
+// Add event listener to the button
+document.querySelector('button').addEventListener('click', () => {
+  dealCards();
+  displayCards();
+});

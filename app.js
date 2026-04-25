@@ -24,6 +24,7 @@ const deck = [
 ];
 
 const spreads = {
+  one: ["Your Card"],
   ppf: ["Past",      "Present", "Future"],
   sao: ["Situation", "Action",  "Outcome"],
   opt: ["Option 1",  "Option 2","Option 3"]
@@ -41,19 +42,23 @@ function shuffle(array) {
   return arr;
 }
 
-function dealCards() {
-  dealtCards = shuffle(deck).slice(0, 3);
-  const labels = spreads[currentSpread];
-  const slots = document.querySelectorAll('.card-slot');
-
-  slots.forEach((slot, i) => {
-    const card = slot.querySelector('.card');
-    const face = slot.querySelector('.card-face');
-    const label = slot.querySelector('.card-label');
-
-    card.classList.remove('flipped', 'dealt');
+function resetSlots(labels) {
+  document.querySelectorAll('.card-slot').forEach((slot, i) => {
+    slot.hidden = i >= labels.length;
     slot.classList.remove('revealed');
-    label.textContent = labels[i];
+    slot.querySelector('.card').classList.remove('flipped', 'dealt');
+    slot.querySelector('.card-label').textContent = labels[i] ?? '';
+  });
+}
+
+function dealCards() {
+  const labels = spreads[currentSpread];
+  dealtCards = shuffle(deck).slice(0, labels.length);
+  resetSlots(labels);
+
+  document.querySelectorAll('.card-slot:not([hidden])').forEach((slot, i) => {
+    const face = slot.querySelector('.card-face');
+    const card = slot.querySelector('.card');
 
     face.innerHTML = `
       <div class="card-numeral">${dealtCards[i][2]}</div>
@@ -71,13 +76,8 @@ document.querySelectorAll('.spread-btn').forEach(btn => {
     document.querySelectorAll('.spread-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentSpread = btn.dataset.spread;
-
-    if (dealtCards.length > 0) {
-      const labels = spreads[currentSpread];
-      document.querySelectorAll('.card-label').forEach((el, i) => {
-        el.textContent = labels[i];
-      });
-    }
+    dealtCards = [];
+    resetSlots(spreads[currentSpread]);
   });
 });
 

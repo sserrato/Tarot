@@ -17,6 +17,6 @@ jobs:
           switches: -avz --delete --exclude='.git*' --exclude='.github' --exclude='README.md'
           path: ./
           remote_path: /home/u315068978/domains/tarot.joysoftheunderground.com/public_html/
-          remote_host: 46.202.183.239
-          remote_user: u315068978
+          remote_host: ${{ secrets.HOSTINGER_HOST }}
+          remote_user: ${{ secrets.HOSTINGER_USER }}
           remote_key: ${{ secrets.HOSTINGER_SSH_KEY }}

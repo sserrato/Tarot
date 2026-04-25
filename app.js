@@ -94,6 +94,14 @@ const spreads = {
   opt: ["Option 1",  "Option 2","Option 3"]
 };
 
+const spreadHints = {
+  one: "For daily readings and yes/no questions"
+};
+
+function updateHint() {
+  document.getElementById('spread-hint').textContent = spreadHints[currentSpread] ?? '';
+}
+
 let currentSpread = 'ppf';
 let dealtCards = [];
 
@@ -140,6 +148,7 @@ document.querySelectorAll('.spread-btn').forEach(btn => {
     currentSpread = btn.dataset.spread;
     dealtCards = [];
     resetSlots(spreads[currentSpread]);
+    updateHint();
   });
 });
 

@@ -88,7 +88,7 @@ const deck = [
 ];
 
 const spreads = {
-  one: ["Your Card"],
+  one: ["Single Card"],
   ppf: ["Past",      "Present", "Future"],
   sao: ["Situation", "Action",  "Outcome"],
   opt: ["Option 1",  "Option 2","Option 3"]

@@ -65,6 +65,14 @@ body {
   background: rgba(201, 168, 76, 0.08);
 }
 
+.spread-desc {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+  margin-top: 0.2rem;
+}
+
 /* Cards area */
 .cards-area {
   display: flex;

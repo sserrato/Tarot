@@ -17,8 +17,11 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /
+          server-dir: /domains/joysoftheunderground.com/public_html/tarot/
           exclude: |
             **/.git*
+            **/.git/**
+            .git/**
             **/.github/**
             **/README.md
+            **/images/**

@@ -127,8 +127,6 @@ function dealCards() {
     face.innerHTML = `
       <div class="card-numeral">${dealtCards[i][2]}</div>
       <div class="card-arcana">${dealtCards[i][1]}</div>
-      <div class="card-divider"></div>
-      <div class="card-custom">${dealtCards[i][0]}</div>
     `;
 
     setTimeout(() => card.classList.add('dealt'), i * 180);

@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Tarot</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.css"> -->
-  </head>
-  <body>
-    <section class="row">
-      <div class="col-md-4" id="one"></div>
-      <div class="col-md-4" id="two"></div>
-      <div class="col-md-4" id="three"></div>
-    </section>
-    <section class="row">
-      <div class="col-md-4" id="four"></div>
-      <div class="col-md-4" id="five"></div>
-      <div class="col-md-4" id="six"></div>
-    </section>
-    <section class="row">
-      <div class="col-md-4" id="seven"></div>
-      <div class="col-md-4" id="eight"></div>
-      <div class="col-md-4" id="nine"></div>
-    </section>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">Tarot</h1>
 
-<button onclick="showCard()" type="button" name="button">The Card</button>
+    <div class="spread-selector">
+      <button class="spread-btn active" data-spread="ppf">Past · Present · Future</button>
+      <button class="spread-btn" data-spread="sao">Situation · Action · Outcome</button>
+      <button class="spread-btn" data-spread="opt">Three Options</button>
+    </div>
 
-    <script src="app.js" charset="utf-8"></script>
-  </body>
+    <div class="cards-area">
+      <div class="card-slot">
+        <div class="card-label"></div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-back"></div>
+            <div class="card-face"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-slot">
+        <div class="card-label"></div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-back"></div>
+            <div class="card-face"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-slot">
+        <div class="card-label"></div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-back"></div>
+            <div class="card-face"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="deal-btn" id="deal-btn">Draw Cards</button>
+  </main>
+
+  <script src="app.js"></script>
+</body>
 </html>

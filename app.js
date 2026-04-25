@@ -23,17 +23,14 @@ const deck = [
   ["The Multiverse",              "The World",         "XXI"]
 ];
 
-// Card positions and their meanings in the Celtic Cross spread
-const cardSlots = [
-  { selector: "#five",  label: "The present" },
-  { selector: "#four",  label: "The past" },
-  { selector: "#six",   label: "The future" },
-  { selector: "#two",   label: "That which is hidden" },
-  { selector: "#eight", label: "Outward influences" }
-];
+const spreads = {
+  ppf: ["Past",      "Present", "Future"],
+  sao: ["Situation", "Action",  "Outcome"],
+  opt: ["Option 1",  "Option 2","Option 3"]
+};
 
+let currentSpread = 'ppf';
 let dealtCards = [];
-let clickCounter = 0;
 
 function shuffle(array) {
   const arr = [...array];
@@ -45,15 +42,51 @@ function shuffle(array) {
 }
 
 function dealCards() {
-  dealtCards = shuffle(deck).slice(0, cardSlots.length);
+  dealtCards = shuffle(deck).slice(0, 3);
+  const labels = spreads[currentSpread];
+  const slots = document.querySelectorAll('.card-slot');
+
+  slots.forEach((slot, i) => {
+    const card = slot.querySelector('.card');
+    const face = slot.querySelector('.card-face');
+    const label = slot.querySelector('.card-label');
+
+    card.classList.remove('flipped', 'dealt');
+    slot.classList.remove('revealed');
+    label.textContent = labels[i];
+
+    face.innerHTML = `
+      <div class="card-numeral">${dealtCards[i][2]}</div>
+      <div class="card-arcana">${dealtCards[i][1]}</div>
+      <div class="card-divider"></div>
+      <div class="card-custom">${dealtCards[i][0]}</div>
+    `;
+
+    setTimeout(() => card.classList.add('dealt'), i * 180);
+  });
 }
 
-function showCard() {
-  if (clickCounter >= cardSlots.length) return;
-  const { selector, label } = cardSlots[clickCounter];
-  const card = dealtCards[clickCounter];
-  $(selector).append(`<div class="card">${label}:<br>${card[1]}</div>`);
-  clickCounter++;
-}
+document.querySelectorAll('.spread-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.spread-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentSpread = btn.dataset.spread;
 
-dealCards();
+    if (dealtCards.length > 0) {
+      const labels = spreads[currentSpread];
+      document.querySelectorAll('.card-label').forEach((el, i) => {
+        el.textContent = labels[i];
+      });
+    }
+  });
+});
+
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    if (!card.classList.contains('dealt')) return;
+    card.classList.toggle('flipped');
+    card.closest('.card-slot').classList.toggle('revealed', card.classList.contains('flipped'));
+  });
+});
+
+document.getElementById('deal-btn').addEventListener('click', dealCards);
